@@ -15,4 +15,23 @@
 -- Get the emails of all customers that shop at store 1 that are inactive (use 'active')
 
 --How much have these customers spent? (Use code from the previous query to
--- make a subquery or a CTE to solve this one.) 
+-- make a subquery or a CTE to solve this one.)
+
+/*
+Sept. 19 SEE HOW MANY YOU CAN GET THROUGH BY 10am :)
+***/ 
+
+/*
+What's the title and ID of the longest film?
+-- BONUS points if you use a subquery :)
+     title     | film_id | length 
+---------------+---------+--------
+ Chicago North |     141 |    185
+(1 row)
+**/
+SELECT title, film_id, length 
+FROM film
+WHERE length > (SELECT AVG(length) AS avg_length 
+                FROM film)
+ORDER BY length DESC
+LIMIT 1;  
